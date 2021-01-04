@@ -1,0 +1,78 @@
+#include<stdio.h>
+#include<conio.h>
+#define n 10
+int front=-1;
+int rear=-1;
+int arr[n];
+void push()
+{
+int data;
+if(rear==n-1)
+{
+printf("\noverflow");
+}
+if(rear==-1&&front==-1)
+{
+printf("\nENTER DATA");
+scanf("%d",&data);
+front=0;
+rear=0;
+arr[rear]=data;
+rear++;
+}
+else
+{
+printf("\nENTER DATA");
+scanf("%d",&data);
+arr[rear]=data;
+rear++;
+}
+}
+void pop()
+{
+if(front==rear)
+{
+printf("\nunderflow");
+}
+else
+{
+front++;
+}
+}
+void display()
+{
+printf("\ndisplaying array");
+for(int i=front;i<rear;i++)
+printf("%2d",arr[i]);
+}
+void peek()
+{
+printf("%d",arr[front]);
+}
+int main()
+{
+int i;
+
+
+do{
+printf("\nenter choice");
+scanf("%d",&i);
+clrscr();
+switch(i){
+case 1:
+pop();
+break;
+case 2:
+push();
+break;
+case 3:display();
+break;
+case 4:peek();
+break;
+default:
+printf("\nwrong choice");
+}
+}
+while(i!=0);
+getch();
+}

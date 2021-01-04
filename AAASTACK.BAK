@@ -1,0 +1,63 @@
+#include<stdio.h>
+#define n 5
+int arr[n];
+int top=-1;
+void push()
+{
+int x;
+if(top==n-1)
+{
+printf("underflow");
+}
+else
+{
+printf("enter element want to insert in stack");
+scanf("%d",&x);
+top++;
+arr[top]=x;
+}
+}
+void pop()
+{
+if(top==-1)
+{
+printf("underflow");
+}
+else
+{
+top--;
+}
+}
+void top()
+{
+printf("the element at top is %d",arr[top]);
+}
+void display()
+{
+for(int k=0;k<top;k++)
+printf("\n%d",arr[k]);
+}
+int main()
+{
+int i;
+
+
+printf("enter choice");
+scanf("%d",&i);
+switch(i){
+case 1:
+pop();
+break;
+case 2:
+push(x);
+break;
+case 3:display();
+break;
+case 4:top();
+break;
+default:
+printf("wrong choice");
+}
+getch();
+}
+

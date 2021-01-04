@@ -1,0 +1,103 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+struct node{
+int data;
+struct node *next;
+struct node *prev;
+}*head,*tail;
+void beg()
+{
+struct node *newnode;
+newnode=(struct node*)malloc(sizeof(struct node));
+printf("enter data for inserting in begning");
+scanf("%d",&newnode->data);
+head->prev=newnode;
+newnode->next=head;
+head=newnode;
+
+}
+void end()
+{
+struct node *newnode;
+newnode=(struct node*)malloc(sizeof(struct node));
+printf("enter data for inserting in end");
+scanf("%d",&newnode->data);
+tail->next=newnode;
+newnode->prev=tail;
+tail=newnode;
+}
+void pos()
+{
+int pos,len=0,i=1;
+struct node *temp,*newnode;
+temp=head;
+printf("enter the pos");
+scanf("%d",&pos);
+while(temp!=tail)
+{
+temp=temp->next;
+len++;
+}
+printf("%d",len);
+if(pos<i||pos>len)
+{
+printf("invalid position");
+}
+if(pos==1)
+{
+beg();
+}
+else
+newnode=(struct node*)malloc(sizeof(struct node));
+printf("enter data for inserting in position entered");
+scanf("%d",&newnode->data);
+while(i<pos-1)
+{
+temp=temp->next;
+i++;
+}
+newnode->prev=temp;
+newnode->next=temp->next;
+temp->next=newnode;
+newnode->next->prev=newnode;
+/*void display()
+{
+//struct node *temp;
+//temp=head;
+printf("Displaying data");
+while(temp!=0)
+{
+printf("%2d",temp->data);
+temp=temp->next;
+}
+}*/
+
+
+void main()
+{
+int i;
+clrscr();
+
+do{
+printf("\nenter choice");
+scanf("%d",&i);
+switch(i){
+case 1:
+beg();
+break;
+case 2:
+end();
+break;
+case 3:pos();
+break;
+case 4:display();
+break;
+default:
+printf("\nwrong choice");
+}
+}
+while(i!=0);
+getch();
+}
+
